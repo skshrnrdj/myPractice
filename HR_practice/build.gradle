@@ -17,17 +17,29 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' 
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     developmentOnly 'org.springframework.boot:spring-boot-devtools' 
+    // 롬복 라이브러리는 소스 코드를 작성할 때 자바 클래스에 애너테이션을 사용하여 자주 쓰는 Getter 메서드, Setter 메서드, 생성자 등을 자동으로 만들어 주는 도구
     compileOnly 'org.projectlombok:lombok' 
-    annotationProcessor 'org.projectlombok:lombok' 
+    annotationProcessor 'org.projectlombok:lombok'
+    // sql 연동
     runtimeOnly 'com.mysql:mysql-connector-j'
+    // 자바 프로그램에서 데이터베이스에 데이터를 저장하거나 조회하려면 JPA를 사용
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' 
+    // 리포지터리를 이용하여 데이터를 저장하려면 질문을 등록하는 화면과 사용자가 입력한 질문 관련 정보를 저장하는 컨트롤러, 서비스 파일 등이 필요
+    // JUnit을 사용하면 이러한 프로세스를 따르지 않아도 리포지터리만 개별적으로 실행해 테스트해볼 수 있다.
     testImplementation 'org.junit.jupiter:junit-jupiter' 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // 템플릿 엔진 Thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    // 폼 클래스를 사용해 사용자로부터 입력받은 값을 검증하려면 먼저 Spring Boot Validation 라이브러리가 필요
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    
+    
+
+    
+   
 
 }
 

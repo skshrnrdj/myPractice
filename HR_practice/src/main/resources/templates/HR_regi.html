@@ -1,38 +1,95 @@
+User
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사원 등록 폼</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            margin-right: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
 </head>
 <body>
 
 <h2>사원 등록 양식</h2>
 
-<form action="@{/employee/regi}" method="post">
+<form th:action="@{/employee/regi}" method="post">
     <label for="employeeId">사원 번호:</label>
-    <input type="number" id="employeeId" name="employeeId" required><br>
+    <input type="number" id="employeeId" name="employeeId" required>
 
     <label for="name">이름:</label>
-    <input type="text" id="name" name="name" required><br>
+    <input type="text" id="name" name="name" required>
 
     <label for="startDate">입사 일자:</label>
-    <input type="date" id="startDate" name="startDate" required><br>
+    <input type="date" id="startDate" name="startDate" required>
 
     <label for="deptName">부서명:</label>
-    <input type="text" id="deptName" name="deptName" required><br>
+    <input type="text" id="deptName" name="deptName" required>
 
     <label for="position">직급:</label>
-    <input type="text" id="position" name="position" required><br>
+    <input type="text" id="position" name="position" required>
 
     <label for="email">이메일:</label>
-    <input type="email" id="email" name="email" required><br>
+    <input type="email" id="email" name="email" required>
 
     <label for="bankNum">계좌 번호:</label>
-    <input type="text" id="bankNum" name="bankNum" required><br>
+    <input type="text" id="bankNum" name="bankNum" required>
 
     <label for="regularPay">기본 급여:</label>
-    <input type="number" id="regularPay" name="regularPay" required><br>
+    <input type="number" id="regularPay" name="regularPay" required>
 
     <input type="submit" value="등록">
 </form>

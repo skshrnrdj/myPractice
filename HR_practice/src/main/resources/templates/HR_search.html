@@ -5,6 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사원 조회</title>
     <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: center;
+        }
+
+        thead {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            margin-right: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
@@ -28,12 +85,12 @@
             <tr th:each="employee : ${employeeList}">
                 <td th:text="${employee.employeeId}"></td>
                 <td th:text="${employee.name}"></td>
-                <td th:text="${employee.startDate}"></td>
+                <td th:text="${#dates.format(employee.startDate, 'yyyy-MM-dd')}"></td>
                 <td th:text="${employee.deptName}"></td>
                 <td th:text="${employee.position}"></td>
                 <td th:text="${employee.email}"></td>
                 <td th:text="${employee.bankNum}"></td>
-                <td th:text="${employee.regularPay}"></td>
+                <td th:text="${#numbers.formatDecimal(employee.regularPay, 0, 'COMMA', 0, 'POINT')}"></td>
             </tr>
         </tbody>
     </table>
@@ -44,3 +101,4 @@
 
 </body>
 </html>
+
