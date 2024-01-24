@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사원 조회</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+</head>
+<body>
+
+<div class="container my-3">
+    <h2>사원 조회</h2>
+
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th>사번</th>
+                <th>이름</th>
+                <th>입사일자</th>
+                <th>부서명</th>
+                <th>직급</th>
+                <th>Email</th>
+                <th>계좌번호</th>
+                <th>월급</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employeeList}">
+                <td th:text="${employee.employeeId}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.startDate}"></td>
+                <td th:text="${employee.deptName}"></td>
+                <td th:text="${employee.position}"></td>
+                <td th:text="${employee.email}"></td>
+                <td th:text="${employee.bankNum}"></td>
+                <td th:text="${employee.regularPay}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<a href="/employee/regi">사원등록</a>
+<a href="/employee">처음으로</a>
+
+</body>
+</html>

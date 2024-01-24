@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사원 등록 폼</title>
+</head>
+<body>
+
+<h2>사원 등록 양식</h2>
+
+<form action="@{/employee/regi}" method="post">
+    <label for="employeeId">사원 번호:</label>
+    <input type="number" id="employeeId" name="employeeId" required><br>
+
+    <label for="name">이름:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="startDate">입사 일자:</label>
+    <input type="date" id="startDate" name="startDate" required><br>
+
+    <label for="deptName">부서명:</label>
+    <input type="text" id="deptName" name="deptName" required><br>
+
+    <label for="position">직급:</label>
+    <input type="text" id="position" name="position" required><br>
+
+    <label for="email">이메일:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="bankNum">계좌 번호:</label>
+    <input type="text" id="bankNum" name="bankNum" required><br>
+
+    <label for="regularPay">기본 급여:</label>
+    <input type="number" id="regularPay" name="regularPay" required><br>
+
+    <input type="submit" value="등록">
+</form>
+
+<a href="/employee/search">목록으로</a>
+<a href="/employee">처음으로</a>
+
+</body>
+</html>
