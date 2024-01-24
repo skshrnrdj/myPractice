@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사원 조회</title>
+    
     <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -82,7 +84,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="employee : ${employeeList}">
+            <tr th:each="employee : ${paging}">
                 <td th:text="${employee.employeeId}"></td>
                 <td th:text="${employee.name}"></td>
                 <td th:text="${#dates.format(employee.startDate, 'yyyy-MM-dd')}"></td>
@@ -94,6 +96,31 @@
             </tr>
         </tbody>
     </table>
+    
+    <!-- 페이징처리 시작 -->
+    <div th:if="${!paging.isEmpty()}">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
+                <a class="page-link"
+                    th:href="@{|?page=${paging.number-1}|}">
+                    <span>이전</span>
+                </a>
+            </li>
+            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}" 
+                th:if="${page >= paging.number-5 and page <= paging.number+5}"
+                th:classappend="${page == paging.number} ? 'active'" 
+                class="page-item">
+                <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+            </li>
+            <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
+                <a class="page-link" th:href="@{|?page=${paging.number+1}|}">
+                    <span>다음</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 페이징처리 끝 -->
+    
 </div>
 
 <a href="/employee/regi">사원등록</a>

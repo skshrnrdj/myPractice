@@ -6,23 +6,25 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
 
+@RequestMapping("/employee")
 @RequiredArgsConstructor
 @Controller
 public class RegiController {
 	
 	private final RegiService regiService;
 	
-    @GetMapping("/employee/regi")
+    @GetMapping("/regi")
     public String regi() {
     	
         return "HR_regi";
     }
     
-    @PostMapping("/employee/regi")
+    @PostMapping("/regi")
     public String registerEmployee(
             @RequestParam(name = "employeeId") Long employeeId,
             @RequestParam(name = "name") String name,
